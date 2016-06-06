@@ -50,3 +50,23 @@ Node.prototype.BFTrav = function(callback) {
 // node1.BFTrav(function(val) {
 //   console.log(val);
 // })
+
+Node.prototype.reverseTree = function () {
+  if (this === null) {
+    return;
+  }
+  var temp = this.left;
+  this.left = this.right;
+  this.right = temp;
+  if (this.left) {
+    this.left.reverseTree();
+  }
+  if (this.right) {
+    this.right.reverseTree();
+  }
+}
+
+node1.reverseTree();
+node1.BFTrav(function(val) {
+  console.log(val);
+})
